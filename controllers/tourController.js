@@ -4,6 +4,34 @@ const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
 );
 
+const getTourByIdParam = (req) => {
+  const id = req.params.id * 1; // Use "* 1" to convert to number
+  return tours.find((t) => t.id === id);
+};
+
+exports.checkId = (req, res, next, val) => {
+  const tour = getTourByIdParam(req);
+  if (!tour) {
+    return res.status(404).json({
+      status: "fail",
+      message: "Invalid Id",
+    });
+  }
+  next();
+};
+
+exports.checkBody = (req, res, next) => {
+  var newTour = req.body;
+
+  if (!newTour || !newTour.name || !newTour.price) {
+    return res.status(400).json({
+      status: "fail",
+      message: "Missing name or price",
+    });
+  }
+  next();
+};
+
 exports.getAllTours = (req, res) => {
   res.status(200).json({
     status: "success",
@@ -35,15 +63,7 @@ exports.createTour = (req, res) => {
 };
 
 exports.getTour = (req, res) => {
-  const id = req.params.id * 1; // Use "* 1" to convert to number
-  const tour = tours.find((t) => t.id === id);
-
-  if (!tour) {
-    return res.status(404).json({
-      status: "fail",
-      message: "Invalid Id",
-    });
-  }
+  const tour = getTourByIdParam(req);
 
   res.status(200).json({
     status: "success",
@@ -54,15 +74,7 @@ exports.getTour = (req, res) => {
 };
 
 exports.updateTour = (req, res) => {
-  const id = req.params.id * 1; // Use "* 1" to convert to number
-  const tour = tours.find((t) => t.id === id);
-
-  if (!tour) {
-    return res.status(404).json({
-      status: "fail",
-      message: "Invalid Id",
-    });
-  }
+  const tour = getTourByIdParam(req);
 
   res.status(200).json({
     status: "success",
@@ -73,15 +85,7 @@ exports.updateTour = (req, res) => {
 };
 
 exports.deleteTour = (req, res) => {
-  const id = req.params.id * 1; // Use "* 1" to convert to number
-  const tour = tours.find((t) => t.id === id);
-
-  if (!tour) {
-    return res.status(404).json({
-      status: "fail",
-      message: "Invalid Id",
-    });
-  }
+  const tour = getTourByIdParam(req);
 
   res.status(204).json({
     status: "success",

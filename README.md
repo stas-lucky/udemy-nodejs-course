@@ -1,4 +1,16 @@
 # Readme
 
+### Run the app
+
 To run the app use next command  
-`nodeman app.js`
+`npm run start:dev`
+
+### ESLint configuration
+
+`npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-config-airbnb eslint-plugin-node eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react --save-dev`
+
+Details: https://eslint.org/docs/rules/
+
+### Prettier config
+
+Details: https://prettier.io/docs/en/options.html
