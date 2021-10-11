@@ -14,3 +14,9 @@ Details: https://eslint.org/docs/rules/
 ### Prettier config
 
 Details: https://prettier.io/docs/en/options.html
+
+### Mongo DB
+
+- Download and unpack
+- Run `sudo ./mongod` from bin folder to start the server
+- RUn `sudo ./mongo` from bin to start client
