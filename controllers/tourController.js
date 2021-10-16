@@ -13,8 +13,6 @@ exports.getAllTours = async (req, res) => {
 
     let query = Tour.find(queryObj);
 
-    console.log(req.query, queryObj);
-
     // Sorting
     if (req.query.sort) {
       const sortBy = req.query.sort.split(",").join(" ");
@@ -29,12 +27,23 @@ exports.getAllTours = async (req, res) => {
       const fields = req.query.fields.split(",").join(" ");
       query = query.select(fields);
     } else {
-      query.select("-__v");
+      query = query.select("-__v");
     }
 
     // Pagination
-    query = query.skip(1).limit(3);
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit * 1 || 10;
+    const skip = (page - 1) * limit;
 
+    console.log(req.query, queryObj, page, limit);
+    query = query.skip(skip).limit(limit);
+
+    if (req.query.page) {
+      const numTours = await Tour.countDocuments();
+      if (skip >= numTours) throw new Error("This page does not exist");
+    }
+
+    // Execute query
     const tours = await query;
 
     res.status(200).json({
@@ -50,6 +59,13 @@ exports.getAllTours = async (req, res) => {
       message: err, //"Invalid dataset",
     });
   }
+};
+
+exports.getTop5Cheap = async (req, res, next) => {
+  req.query.limit = 5;
+  req.query.sort = "-ratingsAverage,price";
+  req.query.fields = "name,price,ratingsAverage,summary,difficulty";
+  next();
 };
 
 exports.createTour = async (req, res) => {
