@@ -1,5 +1,10 @@
 # Readme
 
+Sources:
+
+- Original web site from the course `https://www.natours.dev`
+- Original API from the course `https://www.natours.dev/api/v1/tours`
+
 ### Run the app
 
 To run the app use next command  
@@ -19,4 +24,4 @@ Details: https://prettier.io/docs/en/options.html
 
 - Download and unpack
 - Run `sudo ./mongod` from bin folder to start the server
-- RUn `sudo ./mongo` from bin to start client
+- Run `sudo ./mongo` from bin to start client

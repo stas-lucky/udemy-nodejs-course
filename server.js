@@ -18,7 +18,7 @@ mongoose
     //useCreateIndex: true,
     //useFindAndModify: false,
   })
-  .then(() => console.log("Db connections is succesfull"))
+  .then(() => console.log("Db connection is succesfull"))
   .catch((err) => console.error(err));
 // ============================================================================
 
