@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const slugify = require("slugify");
 
 const tourSchema = new mongoose.Schema(
   {
@@ -6,6 +7,9 @@ const tourSchema = new mongoose.Schema(
       type: String,
       required: [true, "Tour must have a name"],
       unique: true,
+      trim: true,
+      maxLength: [40, "A tour name must have less or equal then 40 character"],
+      minLength: [10, "A tour name must have more or equal then 10 character"],
     },
     duration: {
       type: Number,
@@ -52,6 +56,11 @@ const tourSchema = new mongoose.Schema(
       select: false,
     },
     startDates: [Date],
+    slug: String,
+    secret: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     // Options part
@@ -64,9 +73,50 @@ tourSchema.virtual("durationWeeks").get(function () {
   return this.duration / 7;
 });
 
-tourSchema.pre("save", function () {
-  console.log(this);
+// ===============================================================
+// Document middleware
+
+// Only on .save() and .create()
+tourSchema.pre("save", function (next) {
+  this.slug = slugify(this.name, { lower: true });
+  next();
 });
+
+tourSchema.post("save", function (doc, next) {
+  console.log(doc);
+  next();
+});
+// ===============================================================
+
+// ===============================================================
+// Query middleware
+
+tourSchema.pre(/^find/, function (next) {
+  this.start = Date.now();
+  this.find({ secret: { $ne: true } });
+  next();
+});
+
+tourSchema.post(/^find/, function (docs, next) {
+  console.log(`Query took: ${Date.now() - this.start}`);
+  // console.log(docs);
+  next();
+});
+
+// ===============================================================
+
+// ===============================================================
+// Aggregation middleware
+
+tourSchema.pre("aggregate", function (next) {
+  this.pipeline().unshift({
+    $match: { secret: { $ne: true } },
+  });
+  console.log(this.pipeline());
+  next();
+});
+
+// ===============================================================
 
 const Tour = mongoose.model("Tour", tourSchema);
 
