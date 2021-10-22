@@ -7,8 +7,8 @@ Sources:
 
 ### Run the app
 
-To run the app use next command  
-`npm run start:dev`
+Run mongo database: `sudo`
+To run the app in dev mode use next command: `npm start`
 
 ### ESLint configuration
 
@@ -25,3 +25,5 @@ Details: https://prettier.io/docs/en/options.html
 - Download and unpack
 - Run `sudo ./mongod` from bin folder to start the server
 - Run `sudo ./mongo` from bin to start client
+
+### Debugger from Google
