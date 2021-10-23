@@ -62,7 +62,7 @@ exports.getTour = catchAsync(async (req, res, next) => {
   const { id } = req.params;
 
   const tour = await Tour.findById(id); //  Tour.find({_id:req.params.id)
-  if (!tour) throw new AppError(`Tour with id '${id}' is not found`, 404);
+  if (!tour) next(new AppError(`Tour with id '${id}' is not found`, 404));
 
   res.status(200).json({
     status: "success",
@@ -80,7 +80,7 @@ exports.updateTour = catchAsync(async (req, res, next) => {
     });
 
     if (!updatedTour)
-      throw new AppError(`Tour with id '${id}' is not found`, 404);
+      next(new AppError(`Tour with id '${id}' is not found`, 404));
 
     res.status(200).json({
       status: "success",
@@ -98,7 +98,7 @@ exports.updateTour = catchAsync(async (req, res, next) => {
 
 exports.deleteTour = catchAsync(async (req, res, next) => {
   const tour = await Tour.findByIdAndDelete(req.params.id);
-  if (!tour) throw new AppError(`Tour with id '${id}' is not found`, 404);
+  if (!tour) next(new AppError(`Tour with id '${id}' is not found`, 404));
   res.status(204).json({
     status: "success",
     data: null,
