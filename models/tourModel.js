@@ -50,7 +50,7 @@ const tourSchema = new mongoose.Schema(
       type: Number,
       validate: {
         validator: function (val) {
-          console.log(this, val);
+          //console.log("VALIDATION: ", this, val);
           return val < this.price;
         },
         message: "Price discount ({VALUE}) higher than price",

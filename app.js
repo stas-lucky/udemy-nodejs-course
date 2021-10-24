@@ -5,6 +5,11 @@ const userRouter = require("./routes/userRoutes");
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
 
+process.on("uncaughtException", (err) => {
+  console.log("Encaught Exception:", err);
+  process.exit(1);
+});
+
 const app = express();
 
 // Middlewares
