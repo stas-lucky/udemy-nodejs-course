@@ -27,3 +27,8 @@ Details: https://prettier.io/docs/en/options.html
 - Run `sudo ./mongo` from bin to start client
 
 ### Debugger from Google
+
+Different intersting packages
+
+- https://github.com/auth0/node-jsonwebtoken#readme
+- https://github.com/kelektiv/node.bcrypt.js#readme
