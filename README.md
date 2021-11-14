@@ -18,7 +18,9 @@ Details: https://eslint.org/docs/rules/
 
 ### Prettier config
 
-Details: https://prettier.io/docs/en/options.html
+- In setting search for "Default formatter". Set default to "esbenp.prettier-vscode"
+- Set format on save
+  Details: https://prettier.io/docs/en/options.html
 
 ### Mongo DB
 
@@ -32,3 +34,7 @@ Different intersting packages
 
 - https://github.com/auth0/node-jsonwebtoken#readme
 - https://github.com/kelektiv/node.bcrypt.js#readme
+
+### Dates
+
+Finished on 139 deleteMe
