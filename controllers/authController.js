@@ -8,12 +8,24 @@ const crypto = require("crypto");
 
 const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN,
+    expiresIn: process.env.JWT_EXPIRES_IN * 24 * 60 * 60, // In seconds
   });
 };
 
 const createSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
+
+  const coockieOptions = {
+    expires: new Date(
+      Date.now() + process.env.JWT_EXPIRES_IN * 24 * 60 * 60 * 1000 // In miliseconds
+    ),
+    //secure: true,
+    httpOnly: true,
+  };
+  if (process.env.NODE_ENV === "production") coockieOptions.secure = true;
+
+  res.cookie("jwt", token, coockieOptions);
+  user.password = undefined;
 
   res.status(statusCode).json({
     status: "success",
@@ -61,10 +73,7 @@ exports.login = catchAsync(async (req, res, next) => {
   }
 
   const token = signToken(user._id);
-  res.status(200).json({
-    status: "success",
-    token,
-  });
+  createSendToken(user, 200, res);
 });
 
 exports.protect = catchAsync(async (req, res, next) => {
