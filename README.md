@@ -46,3 +46,7 @@ Different intersting packages
 | express-mongo-sanitize | Data sanitization against NoSQL query injections | https://www.npmjs.com/package/express-mongo-sanitize |
 | xss-clean              | Data sanitization against XSS                    | https://www.npmjs.com/package/xss-clean              |
 | hpp                    | Prevent params pollution                         | https://www.npmjs.com/package/hpp                    |
+
+## Notes
+
+On 21.11.2021 finished on 159 Adding Nested GET Endpoint
