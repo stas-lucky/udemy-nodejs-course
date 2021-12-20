@@ -2,6 +2,7 @@ const Tour = require("../models/tourModel");
 const APIFeatures = require("../utils/apiFeatures");
 const AppError = require("../utils/appError");
 const catchAsync = require("../utils/catchAsync");
+const factory = require("./handlerFactory");
 
 exports.getTop5Cheap = catchAsync(async (req, res, next) => {
   req.query.limit = 5;
@@ -29,35 +30,6 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.createTour = catchAsync(async (req, res, next) => {
-  // const newTour = new Tour();
-  // newTour.save();
-  const newTour = await Tour.create(req.body);
-  res.status(201).json({
-    status: "success",
-    data: {
-      tour: newTour,
-    },
-  });
-
-  // try {
-  //   // const newTour = new Tour();
-  //   // newTour.save();
-  //   const newTour = await Tour.create(req.body);
-  //   res.status(201).json({
-  //     status: "success",
-  //     data: {
-  //       tour: newTour,
-  //     },
-  //   });
-  // } catch (err) {
-  //   res.status(400).json({
-  //     status: "fail",
-  //     message: err, //"Invalid dataset",
-  //   });
-  // }
-});
-
 exports.getTour = catchAsync(async (req, res, next) => {
   const { id } = req.params;
 
@@ -72,38 +44,9 @@ exports.getTour = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.updateTour = catchAsync(async (req, res, next) => {
-  try {
-    const updatedTour = await Tour.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
-
-    if (!updatedTour)
-      next(new AppError(`Tour with id '${id}' is not found`, 404));
-
-    res.status(200).json({
-      status: "success",
-      data: {
-        tour: updatedTour,
-      },
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: "fail",
-      message: err,
-    });
-  }
-});
-
-exports.deleteTour = catchAsync(async (req, res, next) => {
-  const tour = await Tour.findByIdAndDelete(req.params.id);
-  if (!tour) next(new AppError(`Tour with id '${id}' is not found`, 404));
-  res.status(204).json({
-    status: "success",
-    data: null,
-  });
-});
+exports.createTour = factory.createOne(Tour);
+exports.updateTour = factory.updateOne(Tour);
+exports.deleteTour = factory.deleteOne(Tour);
 
 exports.getTourStats = catchAsync(async (req, res, next) => {
   const stats = await Tour.aggregate([
@@ -183,6 +126,68 @@ exports.getMonthlyPlan = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+// exports.updateTour = catchAsync(async (req, res, next) => {
+//   try {
+//     const updatedTour = await Tour.findByIdAndUpdate(req.params.id, req.body, {
+//       new: true,
+//       runValidators: true,
+//     });
+
+//     if (!updatedTour)
+//       return next(new AppError(`Tour with id '${id}' is not found`, 404));
+
+//     res.status(200).json({
+//       status: "success",
+//       data: {
+//         tour: updatedTour,
+//       },
+//     });
+//   } catch (err) {
+//     res.status(400).json({
+//       status: "fail",
+//       message: err,
+//     });
+//   }
+// });
+
+// catchAsync(async (req, res, next) => {
+//   const tour = await Tour.findByIdAndDelete(req.params.id);
+//   if (!tour) next(new AppError(`Tour with id '${id}' is not found`, 404));
+//   res.status(204).json({
+//     status: "success",
+//     data: null,
+//   });
+// });
+
+// exports.createTour = catchAsync(async (req, res, next) => {
+//   // const newTour = new Tour();
+//   // newTour.save();
+//   const newTour = await Tour.create(req.body);
+//   res.status(201).json({
+//     status: "success",
+//     data: {
+//       tour: newTour,
+//     },
+//   });
+
+// try {
+//   // const newTour = new Tour();
+//   // newTour.save();
+//   const newTour = await Tour.create(req.body);
+//   res.status(201).json({
+//     status: "success",
+//     data: {
+//       tour: newTour,
+//     },
+//   });
+// } catch (err) {
+//   res.status(400).json({
+//     status: "fail",
+//     message: err, //"Invalid dataset",
+//   });
+// }
+//});
 
 // const tours = JSON.parse(
 //   fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
