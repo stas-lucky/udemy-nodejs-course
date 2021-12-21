@@ -37,6 +37,10 @@ Different intersting packages
 - https://github.com/auth0/node-jsonwebtoken#readme
 - https://github.com/kelektiv/node.bcrypt.js#readme
 
+## Tools
+
+Mailtrap: https://mailtrap.io/
+
 ## Security related packages
 
 | Package                | Details                                          | Link                                                 |
@@ -49,5 +53,6 @@ Different intersting packages
 
 ## Notes
 
-On 21.11.2021 finished on 159 Adding Nested GET Endpoint
-On 21.12.2021 finished on 161 Factory Functions: Update and Create
+On 21.11.2021 finished on 159 Adding Nested GET Endpoint  
+On 21.12.2021 finished on 161 Factory Functions: Update and Create  
+On 21.12.2021 finished on 166 improving read performance (indexes)
