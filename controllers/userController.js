@@ -64,6 +64,5 @@ exports.createUser = (req, res) => {
 
 exports.getAllUsers = factory.getAll(User);
 exports.getUser = factory.getOne(User);
-// Do NOT update password with this method
-exports.updateUser = factory.updateOne(User);
+exports.updateUser = factory.updateOne(User); // Do NOT update password with this method
 exports.deleteUser = factory.deleteOne(User);

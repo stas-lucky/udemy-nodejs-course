@@ -53,6 +53,9 @@ Mailtrap: https://mailtrap.io/
 
 ## Notes
 
-On 21.11.2021 finished on 159 Adding Nested GET Endpoint  
-On 21.12.2021 finished on 161 Factory Functions: Update and Create  
-On 21.12.2021 finished on 166 improving read performance (indexes)
+| Date       | Lection                                  |
+| ---------- | ---------------------------------------- |
+| 21.11.2021 | 159 Adding Nested GET Endpoint           |
+| 21.12.2021 | 161 Factory Functions: Update and Create |
+| 21.12.2021 | 166 improving read performance (indexes) |
+| 26.12.2021 | 169 Preventing Duplicate Reviews         |
