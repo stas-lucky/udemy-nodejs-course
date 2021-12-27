@@ -53,6 +53,8 @@ Mailtrap: https://mailtrap.io/
 
 ## Notes
 
+https://www.natours.dev/
+
 | Date       | Lection                                      |
 | ---------- | -------------------------------------------- |
 | 21.11.2021 | 159 Adding Nested GET Endpoint               |
@@ -60,3 +62,4 @@ Mailtrap: https://mailtrap.io/
 | 21.12.2021 | 166 improving read performance (indexes)     |
 | 26.12.2021 | 169 Preventing Duplicate Reviews             |
 | 27.12.2021 | 172 Creating API documentation using Postman |
+| 28.12.2021 | 181 Setting up the Project Structure         |

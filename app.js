@@ -1,8 +1,10 @@
+const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 const tourRouter = require("./routes/tourRoutes");
 const userRouter = require("./routes/userRoutes");
 const reviewRouter = require("./routes/reviewRoutes");
+const viewRouter = require("./routes/viewRoutes");
 
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
@@ -18,6 +20,13 @@ process.on("uncaughtException", (err) => {
 });
 
 const app = express();
+
+// pug set up
+app.set("view engine", "pug"); // sets pug as render engine
+app.set("views", path.join(__dirname, "views")); // sets folder with pug views
+
+// Serving static files
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(helmet()); // Sets security HTTP headers
 // Middlewares
@@ -59,10 +68,8 @@ app.use(
   })
 );
 
-// Serving static files
-app.use(express.static(`${__dirname}/public`));
-
 // Controllers
+app.use("/", viewRouter);
 app.use("/api/v1/tours", tourRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/reviews", reviewRouter);
