@@ -62,4 +62,5 @@ https://www.natours.dev/
 | 21.12.2021 | 166 improving read performance (indexes)     |
 | 26.12.2021 | 169 Preventing Duplicate Reviews             |
 | 27.12.2021 | 172 Creating API documentation using Postman |
-| 28.12.2021 | 181 Setting up the Project Structure         |
+| 28.12.2021 | 180 Setting up the Project Structure         |
+| 30.12.2021 | 184 Building tour page - Part 2              |
