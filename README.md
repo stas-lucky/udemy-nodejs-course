@@ -64,3 +64,4 @@ https://www.natours.dev/
 | 27.12.2021 | 172 Creating API documentation using Postman |
 | 28.12.2021 | 180 Setting up the Project Structure         |
 | 30.12.2021 | 184 Building tour page - Part 2              |
+| 31.12.2021 | 186 Including a Map with Mapbox - Part 2     |

@@ -28,7 +28,7 @@ app.set("views", path.join(__dirname, "views")); // sets folder with pug views
 // Serving static files
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use(helmet()); // Sets security HTTP headers
+//app.use(helmet()); // Sets security HTTP headers
 // Middlewares
 const limiter = rateLimit({
   max: 10,
