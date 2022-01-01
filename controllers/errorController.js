@@ -1,11 +1,20 @@
 const AppError = require("../utils/appError");
 
-const sendErrorDev = (err, res) => {
-  res.status(err.statusCode).json({
-    status: err.status,
-    message: err.message,
-    stack: err.stack,
-    err: err,
+const sendErrorDev = (err, req, res) => {
+  if (req.originalUrl.startsWith("/api")) {
+    // API
+    return res.status(err.statusCode).json({
+      status: err.status,
+      message: err.message,
+      stack: err.stack,
+      err: err,
+    });
+  }
+  // Rendered website
+  //console.error("ERROR", err);
+  return res.status(err.statusCode).render("error", {
+    title: "Something went wrong",
+    msg: err.message,
   });
 };
 
@@ -30,17 +39,33 @@ const handleValidationErrorDB = (err) => {
 const handleJsonWebTokenError = () => new AppError("Invalid token", 401);
 const handleTokenExpiredError = () => new AppError("Token expired", 401);
 
-const sendErrorProd = (err, res) => {
-  if (err.isOperational) {
-    res.status(err.statusCode).json({
-      status: err.status,
-      message: err.message,
+const sendErrorProd = (err, req, res) => {
+  if (req.originalUrl.startsWith("/api")) {
+    // API
+    if (err.isOperational) {
+      return res.status(err.statusCode).json({
+        status: err.status,
+        message: err.message,
+      });
+    }
+    //console.error("ERROR", err);
+    return res.status(500).json({
+      status: "error",
+      message: "Something went really wrong!!!",
     });
   } else {
-    console.error("ERROR", err);
-    res.status(500).json({
-      status: "error",
-      messgae: "Something went really wrong!!!",
+    // Rendered website
+    //console.error("ERROR", err);
+    if (err.isOperational) {
+      return res.status(err.statusCode).render("error", {
+        title: "Something went wrong!!!!!",
+        msg: err.message,
+      });
+    }
+
+    return res.status(err.statusCode).render("error", {
+      title: "Oh. Something went wrong!",
+      msg: "Please try again later",
     });
   }
 };
@@ -51,7 +76,7 @@ module.exports = (err, req, res, next) => {
   err.status = err.status || "error";
   console.log("ERROR:", err);
   if (process.env.NODE_ENV === "development") {
-    sendErrorDev(err, res);
+    sendErrorDev(err, req, res);
   } else {
     // Non dev environments
     let error = { ...err };
@@ -61,6 +86,6 @@ module.exports = (err, req, res, next) => {
     if (err.name === "JsonWebTokenError") error = handleJsonWebTokenError();
     if (err.name === "TokenExpiredError") error = handleTokenExpiredError();
 
-    sendErrorProd(error, res);
+    sendErrorProd(err, req, res);
   }
 };

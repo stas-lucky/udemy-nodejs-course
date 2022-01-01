@@ -65,3 +65,5 @@ https://www.natours.dev/
 | 28.12.2021 | 180 Setting up the Project Structure         |
 | 30.12.2021 | 184 Building tour page - Part 2              |
 | 31.12.2021 | 186 Including a Map with Mapbox - Part 2     |
+| 31.12.2021 | 188 Loggin in Users with OUr API - Part 2    |
+| 01.01.2022 | 193 Building the User Account Page           |

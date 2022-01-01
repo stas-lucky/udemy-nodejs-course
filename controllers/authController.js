@@ -76,6 +76,16 @@ exports.login = catchAsync(async (req, res, next) => {
   createSendToken(user, 200, res);
 });
 
+exports.logout = catchAsync(async (req, res, next) => {
+  res.cookie("jwt", "loggedout", {
+    expires: new Date(Date.now() + 10 * 1000), // In seconds
+    httpOnly: true,
+  });
+  res.status(200).json({
+    status: "success",
+  });
+});
+
 exports.protect = catchAsync(async (req, res, next) => {
   let token;
   if (
@@ -83,6 +93,9 @@ exports.protect = catchAsync(async (req, res, next) => {
     req.headers.authorization.startsWith("Bearer")
   ) {
     token = req.headers.authorization.split(" ")[1]; // Bearer {token}
+  } else if (req.cookies.jwt) {
+    // Try to get token from cookie
+    token = req.cookies.jwt;
   }
 
   // 1. Check if token is there
@@ -111,8 +124,38 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   // Grant access to protected route
   req.user = currentUser;
+  res.locals.user = currentUser; // PUG templates have access to response locals
   next();
 });
+
+// Only for rendered pagesm no errors!
+exports.isLoggedIn = async (req, res, next) => {
+  if (req.cookies.jwt) {
+    try {
+      // Verify token
+      const decodedTokenPayload = await promisify(jwt.verify)(
+        req.cookies.jwt,
+        process.env.JWT_SECRET
+      );
+
+      // 3. Check if user exists
+      const currentUser = await User.findById(decodedTokenPayload.id);
+      if (!currentUser) return next();
+
+      // 4. Check if user changed the password
+      if (currentUser.changedPasswordAfter(decodedTokenPayload.iat)) {
+        return next();
+      }
+
+      // There is logged in user
+      res.locals.user = currentUser; // PUG templates have access to response locals
+      return next();
+    } catch {
+      return next();
+    }
+  }
+  next();
+};
 
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
