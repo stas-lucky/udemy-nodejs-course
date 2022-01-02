@@ -2,15 +2,15 @@
   "name": "4-natours",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "source": "./public/js/index.js",
+  "main": "./public/js/dist/index.js",
   "scripts": {
     "start": "nodemon server.js",
     "start:debug": "ndb server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
     "start:prod:debug": "NODE_ENV=production ndb server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
-    "build:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
+    "js": "parcel watch ./public/js/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -45,7 +45,7 @@
     "eslint-plugin-react": "^7.26.1",
     "ndb": "^1.1.5",
     "nodemon": "^2.0.13",
-    "parcel-bundler": "^1.12.5",
+    "parcel": "^2.0.1",
     "prettier": "^2.4.1"
   }
 }

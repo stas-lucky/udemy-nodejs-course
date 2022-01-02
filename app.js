@@ -49,7 +49,8 @@ app.use(
     limit: "10kb",
   })
 );
-app.use(cookieParser());
+app.use(express.urlencoded());
+app.use(cookieParser({ extended: true, limit: "10kb" }));
 
 // Data sanitization against NoSQL query injections
 app.use(mongoSanitize());
