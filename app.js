@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, "public")));
 //app.use(helmet()); // Sets security HTTP headers
 // Middlewares
 const limiter = rateLimit({
-  max: 10,
+  max: 100,
   windowMs: 60 * 60 * 1000, // 1 hour,
   message: "Too many requests from this IP, please try again in an hour!",
 });

@@ -42,8 +42,9 @@ exports.getAccount = catchAsync(async (req, res, next) => {
 });
 
 exports.submitUserData = catchAsync(async (req, res, next) => {
-  console.log("UPDATE", req.body);
-  const updatedUser = User.findByIdAndUpdate(
+  // Using form
+  //console.log("UPDATE", req.body);
+  const updatedUser = await User.findByIdAndUpdate(
     req.user.id,
     {
       name: req.body.name,
@@ -54,7 +55,7 @@ exports.submitUserData = catchAsync(async (req, res, next) => {
       runValidators: true,
     }
   );
-  console.log("UPDATE USER", updatedUser);
+  //console.log("UPDATE USER", updatedUser);
   res.status(200).render("account", {
     title: `Your account`,
     user: updatedUser,
