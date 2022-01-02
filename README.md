@@ -50,6 +50,8 @@ Mailtrap: https://mailtrap.io/
 | express-mongo-sanitize | Data sanitization against NoSQL query injections | https://www.npmjs.com/package/express-mongo-sanitize |
 | xss-clean              | Data sanitization against XSS                    | https://www.npmjs.com/package/xss-clean              |
 | hpp                    | Prevent params pollution                         | https://www.npmjs.com/package/hpp                    |
+| mailsac                | Create temp email for getting emails             | https://mailsac.com/                                 |
+| mailsac                | Payment system                                   | https://stripe.com/                                  |
 
 ## Notes
 
@@ -67,3 +69,4 @@ https://www.natours.dev/
 | 31.12.2021 | 186 Including a Map with Mapbox - Part 2     |
 | 31.12.2021 | 188 Loggin in Users with OUr API - Part 2    |
 | 01.01.2022 | 193 Building the User Account Page           |
+| 02.01.2022 | 208. Using Sendgrid for "Real" Emails        |
