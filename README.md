@@ -41,7 +41,7 @@ Different intersting packages
 
 Mailtrap: https://mailtrap.io/
 
-## Security related packages
+## Packages and services overview
 
 | Package                | Details                                          | Link                                                 |
 | ---------------------- | ------------------------------------------------ | ---------------------------------------------------- |
@@ -50,8 +50,10 @@ Mailtrap: https://mailtrap.io/
 | express-mongo-sanitize | Data sanitization against NoSQL query injections | https://www.npmjs.com/package/express-mongo-sanitize |
 | xss-clean              | Data sanitization against XSS                    | https://www.npmjs.com/package/xss-clean              |
 | hpp                    | Prevent params pollution                         | https://www.npmjs.com/package/hpp                    |
+| SendGrid               | Service for sending emails                       | https://sendgrid.com/                                |
+| mailtrap               | Capture SMTP traffic                             | https://mailtrap.io/                                 |
 | mailsac                | Create temp email for getting emails             | https://mailsac.com/                                 |
-| mailsac                | Payment system                                   | https://stripe.com/                                  |
+| stripe                 | Payment system                                   | https://stripe.com/                                  |
 
 ## Notes
 
@@ -70,3 +72,4 @@ https://www.natours.dev/
 | 31.12.2021 | 188 Loggin in Users with OUr API - Part 2    |
 | 01.01.2022 | 193 Building the User Account Page           |
 | 02.01.2022 | 208. Using Sendgrid for "Real" Emails        |
+| 06.01.2022 | 216. Final considerations                    |

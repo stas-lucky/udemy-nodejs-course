@@ -20,7 +20,7 @@ router.patch(
   "/updateMe",
   userController.uploadUserPhoto,
   userController.resizeUserPhoto,
-  userController.updateMe
+  userController.updabookingsbookingsteMe
 );
 router.delete("/deleteMe", userController.deleteMe);
 
