@@ -37,9 +37,24 @@ Different intersting packages
 - https://github.com/auth0/node-jsonwebtoken#readme
 - https://github.com/kelektiv/node.bcrypt.js#readme
 
-## Tools
+## Heroku
 
-Mailtrap: https://mailtrap.io/
+https://fierce-brook-34676.herokuapp.com/
+https://git.heroku.com/fierce-brook-34676.git
+
+To login: `heroku login`  
+Create project (one time command): `heroku create`  
+To push code  
+`git push heroku master`  
+`heroku `
+
+Environment variables
+`heroku config:set NODE_ENV=production`  
+`heroku config:set JWT_SECRET=`
+`heroku config:set JWT_EXPIRES_IN=`
+`heroku config:set SENDGRID_USERNAME=`
+`heroku config:set SENDGRID_PASSWORD=`
+`heroku config:set STRIPE_SECRET_KEY=`
 
 ## Packages and services overview
 
