@@ -26,7 +26,7 @@ mongoose
 //console.log(app.get("env")); // From OS
 //console.log(process.env); // From process
 
-const port = process.env.PORT;
+const port = process.env.PORT || 8000;
 const server = app.listen(port, () => {
   console.log(`Running on port ${port}`);
 });

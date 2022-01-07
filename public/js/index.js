@@ -5,8 +5,6 @@ import { login, logout } from "./login";
 import { updateData, updatePassword } from "./updateSettings";
 import { bookTour } from "./stripe";
 
-console.log("TEST");
-
 // Elements
 const mapBox = document.getElementById("map");
 const loginForm = document.querySelector(".form--login");
@@ -48,9 +46,9 @@ if (userDataForm) {
     form.append("email", document.getElementById("email").value);
     form.append("photo", document.getElementById("photo").files[0]);
 
-    console.log(form);
+    // console.log(form);
 
-    for (let f of form) console.log(f);
+    // for (let f of form) console.log(f);
 
     await updateData(form);
   });
@@ -75,7 +73,6 @@ if (userSettingsForm) {
   });
 }
 
-console.log("BookBtn", bookBtn);
 if (bookBtn) {
   bookBtn.addEventListener("click", (e) => {
     e.target.textContent = "Processing...";

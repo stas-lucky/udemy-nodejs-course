@@ -12,7 +12,7 @@ export const displayMap = (locations) => {
 
   const bounds = new mapboxgl.LngLatBounds();
 
-  console.log("LOC: ", locations);
+  // console.log("LOC: ", locations);
   locations.forEach((loc) => {
     // Create marker
     const el = document.createElement("div");

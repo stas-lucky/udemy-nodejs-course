@@ -51,3 +51,5 @@ Thumbs.db
 test-file.txt
 .cache
 .parcel-cache
+
+*.env

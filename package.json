@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
     "start:debug": "ndb server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
     "start:prod:debug": "NODE_ENV=production ndb server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fe:watch": "parcel watch ./public/js/index.js --dist-dir ./public/js/dist"
+    "fe:watch": "parcel watch ./public/js/index.js --dist-dir ./public/js/dist",
+    "fe:build": "parcel build ./public/js/index.js --dist-dir ./public/js/dist"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +18,7 @@
     "@babel/polyfill": "^7.12.1",
     "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
@@ -49,5 +52,8 @@
     "nodemon": "^2.0.13",
     "parcel": "^2.0.1",
     "prettier": "^2.4.1"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   }
 }

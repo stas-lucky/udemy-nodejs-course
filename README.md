@@ -50,6 +50,7 @@ Mailtrap: https://mailtrap.io/
 | express-mongo-sanitize | Data sanitization against NoSQL query injections | https://www.npmjs.com/package/express-mongo-sanitize |
 | xss-clean              | Data sanitization against XSS                    | https://www.npmjs.com/package/xss-clean              |
 | hpp                    | Prevent params pollution                         | https://www.npmjs.com/package/hpp                    |
+| morgan                 | Logger                                           | https://www.npmjs.com/package/morgan                 |
 | SendGrid               | Service for sending emails                       | https://sendgrid.com/                                |
 | mailtrap               | Capture SMTP traffic                             | https://mailtrap.io/                                 |
 | mailsac                | Create temp email for getting emails             | https://mailsac.com/                                 |
