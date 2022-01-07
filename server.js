@@ -39,3 +39,13 @@ process.on("unhandledRejection", (err) => {
     process.exit(1);
   });
 });
+
+process.on("SIGTERM", () => {
+  // Every 24 hours recycles the app by sending SIGTERM
+  // We need to react on and stop server gracefully
+
+  console.log("SIGTERM recevied. Shutting down gracefully");
+  server.close(() => {
+    console.log("Process terminated!");
+  });
+});

@@ -46,7 +46,7 @@ To login: `heroku login`
 Create project (one time command): `heroku create`  
 To push code  
 `git push heroku master`  
-`heroku `
+`heroku open`
 
 Environment variables
 `heroku config:set NODE_ENV=production`  

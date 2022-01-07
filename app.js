@@ -23,6 +23,7 @@ process.on("uncaughtException", (err) => {
 });
 
 const app = express();
+app.enable("trust proxy");
 
 // pug set up
 app.set("view engine", "pug"); // sets pug as render engine
