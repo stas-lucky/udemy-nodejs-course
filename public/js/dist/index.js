@@ -9,27 +9,27 @@
 (function (modules, entry, mainEntry, parcelRequireName, globalName) {
   /* eslint-disable no-undef */
   var globalObject =
-    typeof globalThis !== "undefined"
+    typeof globalThis !== 'undefined'
       ? globalThis
-      : typeof self !== "undefined"
+      : typeof self !== 'undefined'
       ? self
-      : typeof window !== "undefined"
+      : typeof window !== 'undefined'
       ? window
-      : typeof global !== "undefined"
+      : typeof global !== 'undefined'
       ? global
       : {};
   /* eslint-enable no-undef */
 
   // Save the require from previous bundle to this closure if any
   var previousRequire =
-    typeof globalObject[parcelRequireName] === "function" &&
+    typeof globalObject[parcelRequireName] === 'function' &&
     globalObject[parcelRequireName];
 
   var cache = previousRequire.cache || {};
   // Do not use `require` to prevent Webpack from trying to bundle this call
   var nodeRequire =
-    typeof module !== "undefined" &&
-    typeof module.require === "function" &&
+    typeof module !== 'undefined' &&
+    typeof module.require === 'function' &&
     module.require.bind(module);
 
   function newRequire(name, jumped) {
@@ -39,7 +39,7 @@
         // cache jump to the current global require ie. the last bundle
         // that was added to the page.
         var currentRequire =
-          typeof globalObject[parcelRequireName] === "function" &&
+          typeof globalObject[parcelRequireName] === 'function' &&
           globalObject[parcelRequireName];
         if (!jumped && currentRequire) {
           return currentRequire(name, true);
@@ -54,12 +54,12 @@
         }
 
         // Try the node require function if it exists.
-        if (nodeRequire && typeof name === "string") {
+        if (nodeRequire && typeof name === 'string') {
           return nodeRequire(name);
         }
 
         var err = new Error("Cannot find module '" + name + "'");
-        err.code = "MODULE_NOT_FOUND";
+        err.code = 'MODULE_NOT_FOUND';
         throw err;
       }
 
@@ -108,7 +108,7 @@
     ];
   };
 
-  Object.defineProperty(newRequire, "root", {
+  Object.defineProperty(newRequire, 'root', {
     get: function () {
       return globalObject[parcelRequireName];
     },
@@ -126,11 +126,11 @@
     var mainExports = newRequire(mainEntry);
 
     // CommonJS
-    if (typeof exports === "object" && typeof module !== "undefined") {
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
       module.exports = mainExports;
 
       // RequireJS
-    } else if (typeof define === "function" && define.amd) {
+    } else if (typeof define === 'function' && define.amd) {
       define(function () {
         return mainExports;
       });
@@ -140,92 +140,77 @@
       this[globalName] = mainExports;
     }
   }
-})(
-  {
-    "21kJ1": [
-      function (require, module, exports) {
-        "use strict";
-        var HMR_HOST = null;
-        var HMR_PORT = 1234;
-        var HMR_SECURE = false;
-        var HMR_ENV_HASH = "b219946e11860a91";
-        module.bundle.HMR_BUNDLE_ID = "cd856f9113a39a59";
-        function _createForOfIteratorHelper(o, allowArrayLike) {
-          var it;
-          if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
-            if (
-              Array.isArray(o) ||
-              (it = _unsupportedIterableToArray(o)) ||
-              (allowArrayLike && o && typeof o.length === "number")
-            ) {
-              if (it) o = it;
-              var i = 0;
-              var F = function F() {};
-              return {
+})({"21kJ1":[function(require,module,exports) {
+"use strict";
+var HMR_HOST = null;
+var HMR_PORT = 1234;
+var HMR_SECURE = false;
+var HMR_ENV_HASH = "b219946e11860a91";
+module.bundle.HMR_BUNDLE_ID = "cd856f9113a39a59";
+function _createForOfIteratorHelper(o, allowArrayLike) {
+    var it;
+    if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
+        if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+            if (it) o = it;
+            var i = 0;
+            var F = function F() {
+            };
+            return {
                 s: F,
                 n: function n() {
-                  if (i >= o.length)
-                    return {
-                      done: true,
+                    if (i >= o.length) return {
+                        done: true
                     };
-                  return {
-                    done: false,
-                    value: o[i++],
-                  };
+                    return {
+                        done: false,
+                        value: o[i++]
+                    };
                 },
                 e: function e(_e) {
-                  throw _e;
+                    throw _e;
                 },
-                f: F,
-              };
-            }
-            throw new TypeError(
-              "Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
-            );
-          }
-          var normalCompletion = true,
-            didErr = false,
-            err;
-          return {
-            s: function s() {
-              it = o[Symbol.iterator]();
-            },
-            n: function n() {
-              var step = it.next();
-              normalCompletion = step.done;
-              return step;
-            },
-            e: function e(_e2) {
-              didErr = true;
-              err = _e2;
-            },
-            f: function f() {
-              try {
+                f: F
+            };
+        }
+        throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    var normalCompletion = true, didErr = false, err;
+    return {
+        s: function s() {
+            it = o[Symbol.iterator]();
+        },
+        n: function n() {
+            var step = it.next();
+            normalCompletion = step.done;
+            return step;
+        },
+        e: function e(_e2) {
+            didErr = true;
+            err = _e2;
+        },
+        f: function f() {
+            try {
                 if (!normalCompletion && it.return != null) it.return();
-              } finally {
+            } finally{
                 if (didErr) throw err;
-              }
-            },
-          };
+            }
         }
-        function _unsupportedIterableToArray(o, minLen) {
-          if (!o) return;
-          if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-          var n = Object.prototype.toString.call(o).slice(8, -1);
-          if (n === "Object" && o.constructor) n = o.constructor.name;
-          if (n === "Map" || n === "Set") return Array.from(o);
-          if (
-            n === "Arguments" ||
-            /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
-          )
-            return _arrayLikeToArray(o, minLen);
-        }
-        function _arrayLikeToArray(arr, len) {
-          if (len == null || len > arr.length) len = arr.length;
-          for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-          return arr2;
-        }
-        /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE */ /*::
+    };
+}
+function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+    for(var i = 0, arr2 = new Array(len); i < len; i++)arr2[i] = arr[i];
+    return arr2;
+}
+/* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE */ /*::
 import type {
   HMRAsset,
   HMRMessage,
@@ -257,627 +242,487 @@ declare var HMR_HOST: string;
 declare var HMR_PORT: string;
 declare var HMR_ENV_HASH: string;
 declare var HMR_SECURE: boolean;
-*/ var OVERLAY_ID = "__parcel__error__overlay__";
-        var OldModule = module.bundle.Module;
-        function Module(moduleName) {
-          OldModule.call(this, moduleName);
-          this.hot = {
-            data: module.bundle.hotData,
-            _acceptCallbacks: [],
-            _disposeCallbacks: [],
-            accept: function accept(fn) {
-              this._acceptCallbacks.push(fn || function () {});
-            },
-            dispose: function dispose(fn) {
-              this._disposeCallbacks.push(fn);
-            },
-          };
-          module.bundle.hotData = undefined;
+*/ var OVERLAY_ID = '__parcel__error__overlay__';
+var OldModule = module.bundle.Module;
+function Module(moduleName) {
+    OldModule.call(this, moduleName);
+    this.hot = {
+        data: module.bundle.hotData,
+        _acceptCallbacks: [],
+        _disposeCallbacks: [],
+        accept: function accept(fn) {
+            this._acceptCallbacks.push(fn || function() {
+            });
+        },
+        dispose: function dispose(fn) {
+            this._disposeCallbacks.push(fn);
         }
-        module.bundle.Module = Module;
-        var checkedAssets, acceptedAssets, assetsToAccept;
-        function getHostname() {
-          return (
-            HMR_HOST ||
-            (location.protocol.indexOf("http") === 0
-              ? location.hostname
-              : "localhost")
-          );
-        }
-        function getPort() {
-          return HMR_PORT || location.port;
-        } // eslint-disable-next-line no-redeclare
-        var parent = module.bundle.parent;
-        if (
-          (!parent || !parent.isParcelRequire) &&
-          typeof WebSocket !== "undefined"
-        ) {
-          var hostname = getHostname();
-          var port = getPort();
-          var protocol =
-            HMR_SECURE ||
-            (location.protocol == "https:" &&
-              !/localhost|127.0.0.1|0.0.0.0/.test(hostname))
-              ? "wss"
-              : "ws";
-          var ws = new WebSocket(
-            protocol + "://" + hostname + (port ? ":" + port : "") + "/"
-          ); // $FlowFixMe
-          ws.onmessage = function (event) {
-            checkedAssets = {};
-            acceptedAssets = {};
-            assetsToAccept = [];
-            var data = JSON.parse(event.data);
-            if (data.type === "update") {
-              // Remove error overlay if there is one
-              if (typeof document !== "undefined") removeErrorOverlay();
-              var assets = data.assets.filter(function (asset) {
+    };
+    module.bundle.hotData = undefined;
+}
+module.bundle.Module = Module;
+var checkedAssets, acceptedAssets, assetsToAccept;
+function getHostname() {
+    return HMR_HOST || (location.protocol.indexOf('http') === 0 ? location.hostname : 'localhost');
+}
+function getPort() {
+    return HMR_PORT || location.port;
+} // eslint-disable-next-line no-redeclare
+var parent = module.bundle.parent;
+if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
+    var hostname = getHostname();
+    var port = getPort();
+    var protocol = HMR_SECURE || location.protocol == 'https:' && !/localhost|127.0.0.1|0.0.0.0/.test(hostname) ? 'wss' : 'ws';
+    var ws = new WebSocket(protocol + '://' + hostname + (port ? ':' + port : '') + '/'); // $FlowFixMe
+    ws.onmessage = function(event) {
+        checkedAssets = {
+        };
+        acceptedAssets = {
+        };
+        assetsToAccept = [];
+        var data = JSON.parse(event.data);
+        if (data.type === 'update') {
+            // Remove error overlay if there is one
+            if (typeof document !== 'undefined') removeErrorOverlay();
+            var assets = data.assets.filter(function(asset) {
                 return asset.envHash === HMR_ENV_HASH;
-              }); // Handle HMR Update
-              var handled = assets.every(function (asset) {
-                return (
-                  asset.type === "css" ||
-                  (asset.type === "js" &&
-                    hmrAcceptCheck(
-                      module.bundle.root,
-                      asset.id,
-                      asset.depsByBundle
-                    ))
-                );
-              });
-              if (handled) {
+            }); // Handle HMR Update
+            var handled = assets.every(function(asset) {
+                return asset.type === 'css' || asset.type === 'js' && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
+            });
+            if (handled) {
                 console.clear();
-                assets.forEach(function (asset) {
-                  hmrApply(module.bundle.root, asset);
+                assets.forEach(function(asset) {
+                    hmrApply(module.bundle.root, asset);
                 });
-                for (var i = 0; i < assetsToAccept.length; i++) {
-                  var id = assetsToAccept[i][1];
-                  if (!acceptedAssets[id])
-                    hmrAcceptRun(assetsToAccept[i][0], id);
+                for(var i = 0; i < assetsToAccept.length; i++){
+                    var id = assetsToAccept[i][1];
+                    if (!acceptedAssets[id]) hmrAcceptRun(assetsToAccept[i][0], id);
                 }
-              } else window.location.reload();
-            }
-            if (data.type === "error") {
-              // Log parcel errors to console
-              var _iterator = _createForOfIteratorHelper(data.diagnostics.ansi),
-                _step;
-              try {
-                for (_iterator.s(); !(_step = _iterator.n()).done; ) {
-                  var ansiDiagnostic = _step.value;
-                  var stack = ansiDiagnostic.codeframe
-                    ? ansiDiagnostic.codeframe
-                    : ansiDiagnostic.stack;
-                  console.error(
-                    "🚨 [parcel]: " +
-                      ansiDiagnostic.message +
-                      "\n" +
-                      stack +
-                      "\n\n" +
-                      ansiDiagnostic.hints.join("\n")
-                  );
+            } else window.location.reload();
+        }
+        if (data.type === 'error') {
+            // Log parcel errors to console
+            var _iterator = _createForOfIteratorHelper(data.diagnostics.ansi), _step;
+            try {
+                for(_iterator.s(); !(_step = _iterator.n()).done;){
+                    var ansiDiagnostic = _step.value;
+                    var stack = ansiDiagnostic.codeframe ? ansiDiagnostic.codeframe : ansiDiagnostic.stack;
+                    console.error('🚨 [parcel]: ' + ansiDiagnostic.message + '\n' + stack + '\n\n' + ansiDiagnostic.hints.join('\n'));
                 }
-              } catch (err) {
+            } catch (err) {
                 _iterator.e(err);
-              } finally {
+            } finally{
                 _iterator.f();
-              }
-              if (typeof document !== "undefined") {
+            }
+            if (typeof document !== 'undefined') {
                 // Render the fancy html overlay
                 removeErrorOverlay();
                 var overlay = createErrorOverlay(data.diagnostics.html); // $FlowFixMe
                 document.body.appendChild(overlay);
-              }
             }
-          };
-          ws.onerror = function (e) {
-            console.error(e.message);
-          };
-          ws.onclose = function () {
-            console.warn("[parcel] 🚨 Connection to the HMR server was lost");
-          };
         }
-        function removeErrorOverlay() {
-          var overlay = document.getElementById(OVERLAY_ID);
-          if (overlay) {
-            overlay.remove();
-            console.log("[parcel] ✨ Error resolved");
-          }
+    };
+    ws.onerror = function(e) {
+        console.error(e.message);
+    };
+    ws.onclose = function() {
+        console.warn('[parcel] 🚨 Connection to the HMR server was lost');
+    };
+}
+function removeErrorOverlay() {
+    var overlay = document.getElementById(OVERLAY_ID);
+    if (overlay) {
+        overlay.remove();
+        console.log('[parcel] ✨ Error resolved');
+    }
+}
+function createErrorOverlay(diagnostics) {
+    var overlay = document.createElement('div');
+    overlay.id = OVERLAY_ID;
+    var errorHTML = '<div style="background: black; opacity: 0.85; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; font-family: Menlo, Consolas, monospace; z-index: 9999;">';
+    var _iterator2 = _createForOfIteratorHelper(diagnostics), _step2;
+    try {
+        for(_iterator2.s(); !(_step2 = _iterator2.n()).done;){
+            var diagnostic = _step2.value;
+            var stack = diagnostic.codeframe ? diagnostic.codeframe : diagnostic.stack;
+            errorHTML += "\n      <div>\n        <div style=\"font-size: 18px; font-weight: bold; margin-top: 20px;\">\n          \uD83D\uDEA8 ".concat(diagnostic.message, "\n        </div>\n        <pre>").concat(stack, "</pre>\n        <div>\n          ").concat(diagnostic.hints.map(function(hint) {
+                return '<div>💡 ' + hint + '</div>';
+            }).join(''), "\n        </div>\n        ").concat(diagnostic.documentation ? "<div>\uD83D\uDCDD <a style=\"color: violet\" href=\"".concat(diagnostic.documentation, "\" target=\"_blank\">Learn more</a></div>") : '', "\n      </div>\n    ");
         }
-        function createErrorOverlay(diagnostics) {
-          var overlay = document.createElement("div");
-          overlay.id = OVERLAY_ID;
-          var errorHTML =
-            '<div style="background: black; opacity: 0.85; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; font-family: Menlo, Consolas, monospace; z-index: 9999;">';
-          var _iterator2 = _createForOfIteratorHelper(diagnostics),
-            _step2;
-          try {
-            for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
-              var diagnostic = _step2.value;
-              var stack = diagnostic.codeframe
-                ? diagnostic.codeframe
-                : diagnostic.stack;
-              errorHTML +=
-                '\n      <div>\n        <div style="font-size: 18px; font-weight: bold; margin-top: 20px;">\n          \uD83D\uDEA8 '
-                  .concat(diagnostic.message, "\n        </div>\n        <pre>")
-                  .concat(stack, "</pre>\n        <div>\n          ")
-                  .concat(
-                    diagnostic.hints
-                      .map(function (hint) {
-                        return "<div>💡 " + hint + "</div>";
-                      })
-                      .join(""),
-                    "\n        </div>\n        "
-                  )
-                  .concat(
-                    diagnostic.documentation
-                      ? '<div>\uD83D\uDCDD <a style="color: violet" href="'.concat(
-                          diagnostic.documentation,
-                          '" target="_blank">Learn more</a></div>'
-                        )
-                      : "",
-                    "\n      </div>\n    "
-                  );
-            }
-          } catch (err) {
-            _iterator2.e(err);
-          } finally {
-            _iterator2.f();
-          }
-          errorHTML += "</div>";
-          overlay.innerHTML = errorHTML;
-          return overlay;
+    } catch (err) {
+        _iterator2.e(err);
+    } finally{
+        _iterator2.f();
+    }
+    errorHTML += '</div>';
+    overlay.innerHTML = errorHTML;
+    return overlay;
+}
+function getParents(bundle, id) /*: Array<[ParcelRequire, string]> */ {
+    var modules = bundle.modules;
+    if (!modules) return [];
+    var parents = [];
+    var k, d, dep;
+    for(k in modules)for(d in modules[k][1]){
+        dep = modules[k][1][d];
+        if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) parents.push([
+            bundle,
+            k
+        ]);
+    }
+    if (bundle.parent) parents = parents.concat(getParents(bundle.parent, id));
+    return parents;
+}
+function updateLink(link) {
+    var newLink = link.cloneNode();
+    newLink.onload = function() {
+        if (link.parentNode !== null) // $FlowFixMe
+        link.parentNode.removeChild(link);
+    };
+    newLink.setAttribute('href', link.getAttribute('href').split('?')[0] + '?' + Date.now()); // $FlowFixMe
+    link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+var cssTimeout = null;
+function reloadCSS() {
+    if (cssTimeout) return;
+    cssTimeout = setTimeout(function() {
+        var links = document.querySelectorAll('link[rel="stylesheet"]');
+        for(var i = 0; i < links.length; i++){
+            // $FlowFixMe[incompatible-type]
+            var href = links[i].getAttribute('href');
+            var hostname = getHostname();
+            var servedFromHMRServer = hostname === 'localhost' ? new RegExp('^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):' + getPort()).test(href) : href.indexOf(hostname + ':' + getPort());
+            var absolute = /^https?:\/\//i.test(href) && href.indexOf(window.location.origin) !== 0 && !servedFromHMRServer;
+            if (!absolute) updateLink(links[i]);
         }
-        function getParents(bundle, id) /*: Array<[ParcelRequire, string]> */ {
-          var modules = bundle.modules;
-          if (!modules) return [];
-          var parents = [];
-          var k, d, dep;
-          for (k in modules)
-            for (d in modules[k][1]) {
-              dep = modules[k][1][d];
-              if (
-                dep === id ||
-                (Array.isArray(dep) && dep[dep.length - 1] === id)
-              )
-                parents.push([bundle, k]);
-            }
-          if (bundle.parent)
-            parents = parents.concat(getParents(bundle.parent, id));
-          return parents;
+        cssTimeout = null;
+    }, 50);
+}
+function hmrApply(bundle, asset) {
+    var modules = bundle.modules;
+    if (!modules) return;
+    if (asset.type === 'css') reloadCSS();
+    else if (asset.type === 'js') {
+        var deps = asset.depsByBundle[bundle.HMR_BUNDLE_ID];
+        if (deps) {
+            var fn = new Function('require', 'module', 'exports', asset.output);
+            modules[asset.id] = [
+                fn,
+                deps
+            ];
+        } else if (bundle.parent) hmrApply(bundle.parent, asset);
+    }
+}
+function hmrAcceptCheck(bundle, id, depsByBundle) {
+    var modules = bundle.modules;
+    if (!modules) return;
+    if (depsByBundle && !depsByBundle[bundle.HMR_BUNDLE_ID]) {
+        // If we reached the root bundle without finding where the asset should go,
+        // there's nothing to do. Mark as "accepted" so we don't reload the page.
+        if (!bundle.parent) return true;
+        return hmrAcceptCheck(bundle.parent, id, depsByBundle);
+    }
+    if (checkedAssets[id]) return true;
+    checkedAssets[id] = true;
+    var cached = bundle.cache[id];
+    assetsToAccept.push([
+        bundle,
+        id
+    ]);
+    if (cached && cached.hot && cached.hot._acceptCallbacks.length) return true;
+    var parents = getParents(module.bundle.root, id); // If no parents, the asset is new. Prevent reloading the page.
+    if (!parents.length) return true;
+    return parents.some(function(v) {
+        return hmrAcceptCheck(v[0], v[1], null);
+    });
+}
+function hmrAcceptRun(bundle, id) {
+    var cached = bundle.cache[id];
+    bundle.hotData = {
+    };
+    if (cached && cached.hot) cached.hot.data = bundle.hotData;
+    if (cached && cached.hot && cached.hot._disposeCallbacks.length) cached.hot._disposeCallbacks.forEach(function(cb) {
+        cb(bundle.hotData);
+    });
+    delete bundle.cache[id];
+    bundle(id);
+    cached = bundle.cache[id];
+    if (cached && cached.hot && cached.hot._acceptCallbacks.length) cached.hot._acceptCallbacks.forEach(function(cb) {
+        var assetsToAlsoAccept = cb(function() {
+            return getParents(module.bundle.root, id);
+        });
+        if (assetsToAlsoAccept && assetsToAccept.length) // $FlowFixMe[method-unbinding]
+        assetsToAccept.push.apply(assetsToAccept, assetsToAlsoAccept);
+    });
+    acceptedAssets[id] = true;
+}
+
+},{}],"8aoeg":[function(require,module,exports) {
+// import "@babel/polyfill";
+var _mapbox = require("./mapbox");
+var _login = require("./login");
+var _updateSettings = require("./updateSettings");
+var _stripe = require("./stripe");
+var _alerts = require("./alerts");
+// Elements
+const mapBox = document.getElementById("map");
+const loginForm = document.querySelector(".form--login");
+const logOutBtn = document.querySelector(".nav__el--logout");
+const userDataForm = document.querySelector(".form-user-data");
+const userSettingsForm = document.querySelector(".form-user-settings");
+const bookBtn = document.getElementById("book-tour");
+// Values
+if (mapBox) {
+    const locations = JSON.parse(mapBox.dataset.locations);
+    try {
+        _mapbox.displayMap(locations);
+    } catch (err) {
+        console.error("Mapbox error", err);
+    }
+}
+if (loginForm) loginForm.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    await _login.login(email, password);
+});
+if (logOutBtn) logOutBtn.addEventListener("click", _login.logout);
+if (userDataForm) userDataForm.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    const form = new FormData();
+    form.append("name", document.getElementById("name").value);
+    form.append("email", document.getElementById("email").value);
+    form.append("photo", document.getElementById("photo").files[0]);
+    // console.log(form);
+    // for (let f of form) console.log(f);
+    await _updateSettings.updateData(form);
+});
+if (userSettingsForm) userSettingsForm.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    document.querySelector(".btn--save-password").textContent = "Updating...";
+    const currentPassword = document.getElementById("password-current").value;
+    const password = document.getElementById("password").value;
+    const passwordConfirm = document.getElementById("password-confirm").value;
+    await _updateSettings.updatePassword(currentPassword, password, passwordConfirm);
+    document.querySelector(".btn--save-password").textContent = "Save password";
+    document.getElementById("password-current").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("password-confirm").value = "";
+});
+if (bookBtn) bookBtn.addEventListener("click", async (e)=>{
+    e.target.textContent = "Processing...";
+    const { tourId  } = e.target.dataset;
+    await _stripe.bookTour(tourId);
+    e.target.textContent = "Book tour";
+});
+const alertMessage = document.querySelector("body").dataset.alert;
+if (alertMessage) _alerts.showAlert("success", alertMessage, 20);
+
+},{"./mapbox":"2hHAq","./login":"dJuTi","./updateSettings":"6MsvT","./stripe":"cyDsw","./alerts":"10PXM"}],"2hHAq":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "displayMap", ()=>displayMap
+);
+const displayMap = (locations)=>{
+    mapboxgl.accessToken = "pk.eyJ1Ijoic3Rhc2x1Y2t5IiwiYSI6ImNreHQ1MTV2NzFzaW8yb29lOXhxdGplMmkifQ.Iz4L8CYciewTg4roi1a2Cg";
+    var map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/staslucky/ckxtinmci85db16ryy4uqeros",
+        scrollZoom: false
+    });
+    const bounds = new mapboxgl.LngLatBounds();
+    // console.log("LOC: ", locations);
+    locations.forEach((loc)=>{
+        // Create marker
+        const el = document.createElement("div");
+        el.className = "marker";
+        // Add marker
+        new mapboxgl.Marker({
+            element: el,
+            anchor: "bottom"
+        }).setLngLat(loc.coordinates).addTo(map);
+        // Add popup
+        new mapboxgl.Popup({
+            offset: 30
+        }).setLngLat(loc.coordinates).setHTML(`<p>Day ${loc.day}: ${loc.description}</p>`).addTo(map);
+        // Extend map bounds to include current location
+        bounds.extend(loc.ccordinates);
+    });
+    map.fitBounds(bounds, {
+        padding: {
+            top: 200,
+            bottom: 150,
+            left: 100,
+            right: 100
         }
-        function updateLink(link) {
-          var newLink = link.cloneNode();
-          newLink.onload = function () {
-            if (link.parentNode !== null)
-              // $FlowFixMe
-              link.parentNode.removeChild(link);
-          };
-          newLink.setAttribute(
-            "href",
-            link.getAttribute("href").split("?")[0] + "?" + Date.now()
-          ); // $FlowFixMe
-          link.parentNode.insertBefore(newLink, link.nextSibling);
-        }
-        var cssTimeout = null;
-        function reloadCSS() {
-          if (cssTimeout) return;
-          cssTimeout = setTimeout(function () {
-            var links = document.querySelectorAll('link[rel="stylesheet"]');
-            for (var i = 0; i < links.length; i++) {
-              // $FlowFixMe[incompatible-type]
-              var href = links[i].getAttribute("href");
-              var hostname = getHostname();
-              var servedFromHMRServer =
-                hostname === "localhost"
-                  ? new RegExp(
-                      "^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):" +
-                        getPort()
-                    ).test(href)
-                  : href.indexOf(hostname + ":" + getPort());
-              var absolute =
-                /^https?:\/\//i.test(href) &&
-                href.indexOf(window.location.origin) !== 0 &&
-                !servedFromHMRServer;
-              if (!absolute) updateLink(links[i]);
-            }
-            cssTimeout = null;
-          }, 50);
-        }
-        function hmrApply(bundle, asset) {
-          var modules = bundle.modules;
-          if (!modules) return;
-          if (asset.type === "css") reloadCSS();
-          else if (asset.type === "js") {
-            var deps = asset.depsByBundle[bundle.HMR_BUNDLE_ID];
-            if (deps) {
-              var fn = new Function(
-                "require",
-                "module",
-                "exports",
-                asset.output
-              );
-              modules[asset.id] = [fn, deps];
-            } else if (bundle.parent) hmrApply(bundle.parent, asset);
-          }
-        }
-        function hmrAcceptCheck(bundle, id, depsByBundle) {
-          var modules = bundle.modules;
-          if (!modules) return;
-          if (depsByBundle && !depsByBundle[bundle.HMR_BUNDLE_ID]) {
-            // If we reached the root bundle without finding where the asset should go,
-            // there's nothing to do. Mark as "accepted" so we don't reload the page.
-            if (!bundle.parent) return true;
-            return hmrAcceptCheck(bundle.parent, id, depsByBundle);
-          }
-          if (checkedAssets[id]) return true;
-          checkedAssets[id] = true;
-          var cached = bundle.cache[id];
-          assetsToAccept.push([bundle, id]);
-          if (cached && cached.hot && cached.hot._acceptCallbacks.length)
-            return true;
-          var parents = getParents(module.bundle.root, id); // If no parents, the asset is new. Prevent reloading the page.
-          if (!parents.length) return true;
-          return parents.some(function (v) {
-            return hmrAcceptCheck(v[0], v[1], null);
-          });
-        }
-        function hmrAcceptRun(bundle, id) {
-          var cached = bundle.cache[id];
-          bundle.hotData = {};
-          if (cached && cached.hot) cached.hot.data = bundle.hotData;
-          if (cached && cached.hot && cached.hot._disposeCallbacks.length)
-            cached.hot._disposeCallbacks.forEach(function (cb) {
-              cb(bundle.hotData);
-            });
-          delete bundle.cache[id];
-          bundle(id);
-          cached = bundle.cache[id];
-          if (cached && cached.hot && cached.hot._acceptCallbacks.length)
-            cached.hot._acceptCallbacks.forEach(function (cb) {
-              var assetsToAlsoAccept = cb(function () {
-                return getParents(module.bundle.root, id);
-              });
-              if (assetsToAlsoAccept && assetsToAccept.length)
-                // $FlowFixMe[method-unbinding]
-                assetsToAccept.push.apply(assetsToAccept, assetsToAlsoAccept);
-            });
-          acceptedAssets[id] = true;
-        }
-      },
-      {},
-    ],
-    "8aoeg": [
-      function (require, module, exports) {
-        var _polyfill = require("@babel/polyfill");
-        var _mapbox = require("./mapbox");
-        var _login = require("./login");
-        var _updateSettings = require("./updateSettings");
-        var _stripe = require("./stripe");
-        var _alerts = require("./alerts");
-        // Elements
-        const mapBox = document.getElementById("map");
-        const loginForm = document.querySelector(".form--login");
-        const logOutBtn = document.querySelector(".nav__el--logout");
-        const userDataForm = document.querySelector(".form-user-data");
-        const userSettingsForm = document.querySelector(".form-user-settings");
-        const bookBtn = document.getElementById("book-tour");
-        // Values
-        if (mapBox) {
-          const locations = JSON.parse(mapBox.dataset.locations);
-          try {
-            _mapbox.displayMap(locations);
-          } catch (err) {
-            console.error("Mapbox error", err);
-          }
-        }
-        if (loginForm)
-          loginForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            await _login.login(email, password);
-          });
-        if (logOutBtn) logOutBtn.addEventListener("click", _login.logout);
-        if (userDataForm)
-          userDataForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const form = new FormData();
-            form.append("name", document.getElementById("name").value);
-            form.append("email", document.getElementById("email").value);
-            form.append("photo", document.getElementById("photo").files[0]);
-            // console.log(form);
-            // for (let f of form) console.log(f);
-            await _updateSettings.updateData(form);
-          });
-        if (userSettingsForm)
-          userSettingsForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            document.querySelector(".btn--save-password").textContent =
-              "Updating...";
-            const currentPassword =
-              document.getElementById("password-current").value;
-            const password = document.getElementById("password").value;
-            const passwordConfirm =
-              document.getElementById("password-confirm").value;
-            await _updateSettings.updatePassword(
-              currentPassword,
-              password,
-              passwordConfirm
-            );
-            document.querySelector(".btn--save-password").textContent =
-              "Save password";
-            document.getElementById("password-current").value = "";
-            document.getElementById("password").value = "";
-            document.getElementById("password-confirm").value = "";
-          });
-        if (bookBtn)
-          bookBtn.addEventListener("click", async (e) => {
-            e.target.textContent = "Processing...";
-            const { tourId } = e.target.dataset;
-            await _stripe.bookTour(tourId);
-            e.target.textContent = "Book tour";
-          });
-        const alertMessage = document.querySelector("body").dataset.alert;
-        if (alertMessage) _alerts.showAlert("success", alertMessage, 20);
-      },
-      {
-        "./mapbox": "2hHAq",
-        "./login": "dJuTi",
-        "./updateSettings": "6MsvT",
-        "./stripe": "cyDsw",
-        "./alerts": "10PXM",
-      },
-    ],
-    "2hHAq": [
-      function (require, module, exports) {
-        var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-        parcelHelpers.defineInteropFlag(exports);
-        parcelHelpers.export(exports, "displayMap", () => displayMap);
-        const displayMap = (locations) => {
-          mapboxgl.accessToken =
-            "pk.eyJ1Ijoic3Rhc2x1Y2t5IiwiYSI6ImNreHQ1MTV2NzFzaW8yb29lOXhxdGplMmkifQ.Iz4L8CYciewTg4roi1a2Cg";
-          var map = new mapboxgl.Map({
-            container: "map",
-            style: "mapbox://styles/staslucky/ckxtinmci85db16ryy4uqeros",
-            scrollZoom: false,
-          });
-          const bounds = new mapboxgl.LngLatBounds();
-          // console.log("LOC: ", locations);
-          locations.forEach((loc) => {
-            // Create marker
-            const el = document.createElement("div");
-            el.className = "marker";
-            // Add marker
-            new mapboxgl.Marker({
-              element: el,
-              anchor: "bottom",
-            })
-              .setLngLat(loc.coordinates)
-              .addTo(map);
-            // Add popup
-            new mapboxgl.Popup({
-              offset: 30,
-            })
-              .setLngLat(loc.coordinates)
-              .setHTML(`<p>Day ${loc.day}: ${loc.description}</p>`)
-              .addTo(map);
-            // Extend map bounds to include current location
-            bounds.extend(loc.ccordinates);
-          });
-          map.fitBounds(bounds, {
-            padding: {
-              top: 200,
-              bottom: 150,
-              left: 100,
-              right: 100,
-            },
-          });
-        };
-      },
-      { "@parcel/transformer-js/src/esmodule-helpers.js": "b0ZZB" },
-    ],
-    b0ZZB: [
-      function (require, module, exports) {
-        exports.interopDefault = function (a) {
-          return a && a.__esModule
-            ? a
-            : {
-                default: a,
-              };
-        };
-        exports.defineInteropFlag = function (a) {
-          Object.defineProperty(a, "__esModule", {
-            value: true,
-          });
-        };
-        exports.exportAll = function (source, dest) {
-          Object.keys(source).forEach(function (key) {
-            if (
-              key === "default" ||
-              key === "__esModule" ||
-              dest.hasOwnProperty(key)
-            )
-              return;
-            Object.defineProperty(dest, key, {
-              enumerable: true,
-              get: function () {
-                return source[key];
-              },
-            });
-          });
-          return dest;
-        };
-        exports.export = function (dest, destName, get) {
-          Object.defineProperty(dest, destName, {
+    });
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"b0ZZB"}],"b0ZZB":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
             enumerable: true,
-            get: get,
-          });
-        };
-      },
-      {},
-    ],
-    dJuTi: [
-      function (require, module, exports) {
-        var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-        parcelHelpers.defineInteropFlag(exports);
-        parcelHelpers.export(exports, "login", () => login);
-        parcelHelpers.export(exports, "logout", () => logout);
-        var _axios = require("axios");
-        var _axiosDefault = parcelHelpers.interopDefault(_axios);
-        var _alerts = require("./alerts");
-        const login = async (email, password) => {
-          //console.log(email, password);
-          try {
-            const res = await _axiosDefault.default({
-              method: "POST",
-              url: "/api/v1/users/login",
-              data: {
-                email,
-                password,
-              },
-            });
-            if (res.data.status === "success") {
-              _alerts.showAlert("success", "Logged in!");
-              window.setTimeout(() => {
-                location.assign("/");
-              }, 1500);
+            get: function() {
+                return source[key];
             }
-            //console.log(res);
-          } catch (err) {
-            console.log(err.response.data);
-            _alerts.showAlert("error", err.response.data.message);
-          }
-        };
-        const logout = async () => {
-          try {
-            const res = await _axiosDefault.default({
-              method: "GET",
-              url: "/api/v1/users/logout",
-            });
-            if (res.data.status === "success") location.reload(true); // true forces to reload from server, not from
-          } catch (err) {
-            showError("Error", "Erro logging our. Please try again");
-          }
-        };
-      },
-      {
-        "./alerts": "10PXM",
-        "@parcel/transformer-js/src/esmodule-helpers.js": "b0ZZB",
-      },
-    ],
-    "10PXM": [
-      function (require, module, exports) {
-        var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-        parcelHelpers.defineInteropFlag(exports);
-        parcelHelpers.export(exports, "hideAlert", () => hideAlert);
-        parcelHelpers.export(exports, "showAlert", () => showAlert);
-        const hideAlert = (type, msg) => {
-          const el = document.querySelector(".alert");
-          if (el) el.parentElement.removeChild(el);
-        };
-        const showAlert = (type, msg, time = 5) => {
-          hideAlert();
-          const markup = `<div class="alert alert--${type}">${msg}</div>`;
-          document
-            .querySelector("body")
-            .insertAdjacentHTML("afterbegin", markup);
-          window.setTimeout(hideAlert, time * 1000);
-        };
-      },
-      { "@parcel/transformer-js/src/esmodule-helpers.js": "b0ZZB" },
-    ],
-    "6MsvT": [
-      function (require, module, exports) {
-        var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-        parcelHelpers.defineInteropFlag(exports);
-        parcelHelpers.export(exports, "updateData", () => updateData);
-        parcelHelpers.export(exports, "updatePassword", () => updatePassword);
-        var _axios = require("axios");
-        var _axiosDefault = parcelHelpers.interopDefault(_axios);
-        var _alerts = require("./alerts");
-        const updateData = async (data) => {
-          try {
-            const res = await _axiosDefault.default({
-              method: "PATCH",
-              url: "/api/v1/users/updateMe",
-              data,
-            });
-            if (res.data.status === "success")
-              _alerts.showAlert("success", "Data updated successfully");
-          } catch (err) {
-            _alerts.showAlert("error", err.response.data.message);
-          }
-        };
-        const updatePassword = async (
-          currentPassword,
-          password,
-          passwordConfirm
-        ) => {
-          try {
-            const res = await _axiosDefault.default({
-              method: "PATCH",
-              url: "/api/v1/users/updateMyPassword",
-              data: {
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"dJuTi":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "login", ()=>login
+);
+parcelHelpers.export(exports, "logout", ()=>logout
+);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _alerts = require("./alerts");
+const login = async (email, password)=>{
+    //console.log(email, password);
+    try {
+        const res = await _axiosDefault.default({
+            method: "POST",
+            url: "/api/v1/users/login",
+            data: {
+                email,
+                password
+            }
+        });
+        if (res.data.status === "success") {
+            _alerts.showAlert("success", "Logged in!");
+            window.setTimeout(()=>{
+                location.assign("/");
+            }, 1500);
+        }
+    //console.log(res);
+    } catch (err) {
+        console.log(err.response.data);
+        _alerts.showAlert("error", err.response.data.message);
+    }
+};
+const logout = async ()=>{
+    try {
+        const res = await _axiosDefault.default({
+            method: "GET",
+            url: "/api/v1/users/logout"
+        });
+        if (res.data.status === "success") location.reload(true); // true forces to reload from server, not from
+    } catch (err) {
+        showError("Error", "Erro logging our. Please try again");
+    }
+};
+
+},{"./alerts":"10PXM","@parcel/transformer-js/src/esmodule-helpers.js":"b0ZZB"}],"10PXM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "hideAlert", ()=>hideAlert
+);
+parcelHelpers.export(exports, "showAlert", ()=>showAlert
+);
+const hideAlert = (type, msg)=>{
+    const el = document.querySelector(".alert");
+    if (el) el.parentElement.removeChild(el);
+};
+const showAlert = (type, msg, time = 5)=>{
+    hideAlert();
+    const markup = `<div class="alert alert--${type}">${msg}</div>`;
+    document.querySelector("body").insertAdjacentHTML("afterbegin", markup);
+    window.setTimeout(hideAlert, time * 1000);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"b0ZZB"}],"6MsvT":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "updateData", ()=>updateData
+);
+parcelHelpers.export(exports, "updatePassword", ()=>updatePassword
+);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _alerts = require("./alerts");
+const updateData = async (data)=>{
+    try {
+        const res = await _axiosDefault.default({
+            method: "PATCH",
+            url: "/api/v1/users/updateMe",
+            data
+        });
+        if (res.data.status === "success") _alerts.showAlert("success", "Data updated successfully");
+    } catch (err) {
+        _alerts.showAlert("error", err.response.data.message);
+    }
+};
+const updatePassword = async (currentPassword, password, passwordConfirm)=>{
+    try {
+        const res = await _axiosDefault.default({
+            method: "PATCH",
+            url: "/api/v1/users/updateMyPassword",
+            data: {
                 currentPassword,
                 password,
-                passwordConfirm,
-              },
-            });
-            if (res.data.status === "success")
-              _alerts.showAlert("success", "Password updated successfully");
-          } catch (err) {
-            _alerts.showAlert("error", err.response.data.message);
-          }
-        };
-      },
-      {
-        "./alerts": "10PXM",
-        "@parcel/transformer-js/src/esmodule-helpers.js": "b0ZZB",
-      },
-    ],
-    cyDsw: [
-      function (require, module, exports) {
-        var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-        parcelHelpers.defineInteropFlag(exports);
-        parcelHelpers.export(exports, "bookTour", () => bookTour);
-        var _axios = require("axios");
-        var _axiosDefault = parcelHelpers.interopDefault(_axios);
-        var _alerts = require("./alerts");
-        const stripe = Stripe(
-          "pk_test_51KDxriLb2aCWH5bw5LLwxaRFXZddjQJg2ZFYAzM3McOmd1KpzWn5XXMdqPBMnPyT6QY8v3uoGVdygHbeMA6DQFGH003bAKk4cw"
-        );
-        const bookTour = async (tourId) => {
-          try {
-            const session = await _axiosDefault.default({
-              method: "GET",
-              url: `/api/v1/bookings/checkout-session/${tourId}`,
-            });
-            // console.log(session);
-            await stripe.redirectToCheckout({
-              sessionId: session.data.session.id,
-            });
-            // if (res.data.status === "success") {
-            //   showAlert("success", "Logged in!");
-            //   window.setTimeout(() => {
-            //     location.assign("/");
-            //   }, 1500);
-            // }
-            //console.log(res);
-          } catch (err) {
-            console.log(err);
-            _alerts.showAlert("error", err);
-          }
-        };
-      },
-      {
-        "./alerts": "10PXM",
-        "@parcel/transformer-js/src/esmodule-helpers.js": "b0ZZB",
-      },
-    ],
-  },
-  ["21kJ1", "8aoeg"],
-  "8aoeg",
-  "parcelRequire135a"
+                passwordConfirm
+            }
+        });
+        if (res.data.status === "success") _alerts.showAlert("success", "Password updated successfully");
+    } catch (err) {
+        _alerts.showAlert("error", err.response.data.message);
+    }
+};
+
+},{"./alerts":"10PXM","@parcel/transformer-js/src/esmodule-helpers.js":"b0ZZB"}],"cyDsw":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "bookTour", ()=>bookTour
 );
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _alerts = require("./alerts");
+const stripe = Stripe("pk_test_51KDxriLb2aCWH5bw5LLwxaRFXZddjQJg2ZFYAzM3McOmd1KpzWn5XXMdqPBMnPyT6QY8v3uoGVdygHbeMA6DQFGH003bAKk4cw");
+const bookTour = async (tourId)=>{
+    try {
+        const session = await _axiosDefault.default({
+            method: "GET",
+            url: `/api/v1/bookings/checkout-session/${tourId}`
+        });
+        // console.log(session);
+        await stripe.redirectToCheckout({
+            sessionId: session.data.session.id
+        });
+    // if (res.data.status === "success") {
+    //   showAlert("success", "Logged in!");
+    //   window.setTimeout(() => {
+    //     location.assign("/");
+    //   }, 1500);
+    // }
+    //console.log(res);
+    } catch (err) {
+        console.log(err);
+        _alerts.showAlert("error", err);
+    }
+};
+
+},{"./alerts":"10PXM","@parcel/transformer-js/src/esmodule-helpers.js":"b0ZZB"}]},["21kJ1","8aoeg"], "8aoeg", "parcelRequire135a")
 
 //# sourceMappingURL=index.js.map
