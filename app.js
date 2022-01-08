@@ -53,10 +53,10 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Body parse
-app.use(express.raw()); // Raw parser to work with streams
+
 app.post(
   "/webhook-checkout",
-  express.raw({ type: "application/raw" }),
+  express.raw({ type: "application/raw" }), // Raw parser to work with streams
   bookingController.webhookCheckout
 );
 app.use(express.json({ limit: "10kb" }));
