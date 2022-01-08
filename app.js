@@ -6,7 +6,9 @@ const userRouter = require("./routes/userRoutes");
 const reviewRouter = require("./routes/reviewRoutes");
 const viewRouter = require("./routes/viewRoutes");
 const bookingRouter = require("./routes/bookingRoutes");
+const bookingController = require("./controllers/bookingController");
 const compression = require("compression");
+const cors = require("cors");
 
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
@@ -29,6 +31,10 @@ app.enable("trust proxy");
 app.set("view engine", "pug"); // sets pug as render engine
 app.set("views", path.join(__dirname, "views")); // sets folder with pug views
 
+// CORS
+app.use("*", cors());
+//app.options("*", cors());
+
 // Serving static files
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -47,11 +53,13 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Body parse
-app.use(
-  express.json({
-    limit: "10kb",
-  })
+app.use(express.raw()); // Raw parser to work with streams
+app.post(
+  "/webhook-checkout",
+  express.raw({ type: "application/raw" }),
+  bookingController.webhookCheckout
 );
+app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded());
 app.use(cookieParser({ extended: true, limit: "10kb" }));
 

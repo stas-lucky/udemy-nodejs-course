@@ -44,7 +44,7 @@ process.on("SIGTERM", () => {
   // Every 24 hours recycles the app by sending SIGTERM
   // We need to react on and stop server gracefully
 
-  console.log("SIGTERM recevied. Shutting down gracefully");
+  console.log("SIGTERM received. Shutting down gracefully");
   server.close(() => {
     console.log("Process terminated!");
   });
