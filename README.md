@@ -56,7 +56,8 @@ Environment variables
 `heroku config:set JWT_EXPIRES_IN=`
 `heroku config:set SENDGRID_USERNAME=`
 `heroku config:set SENDGRID_PASSWORD=`
-`heroku config:set STRIPE_SECRET_KEY=`
+`heroku config:set STRIPE_SECRET_KEY=`  
+`heroku config:set STRIPE_WEBHOOK_SECRET=`
 
 ## Packages and services overview
 
