@@ -4,6 +4,7 @@ import { displayMap } from "./mapbox";
 import { login, logout } from "./login";
 import { updateData, updatePassword } from "./updateSettings";
 import { bookTour } from "./stripe";
+import { showAlert } from "./alerts";
 
 // Elements
 const mapBox = document.getElementById("map");
@@ -77,7 +78,10 @@ if (bookBtn) {
   bookBtn.addEventListener("click", (e) => {
     e.target.textContent = "Processing...";
     const { tourId } = e.target.dataset;
-    bookTour(tourId);
+    await bookTour(tourId);
     e.target.textContent = "Book tour";
   });
 }
+
+const alertMessage = document.querySelector("body").dataset.alert;
+if (alertMessage) showAlert("success", alertMessage, 20);
