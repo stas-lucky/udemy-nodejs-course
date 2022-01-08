@@ -75,7 +75,7 @@ if (userSettingsForm) {
 }
 
 if (bookBtn) {
-  bookBtn.addEventListener("click", (e) => {
+  bookBtn.addEventListener("click", async (e) => {
     e.target.textContent = "Processing...";
     const { tourId } = e.target.dataset;
     await bookTour(tourId);
