@@ -132,6 +132,13 @@ tourSchema.virtual("reviews", {
   localField: "_id",
 });
 
+// Virtual populate
+tourSchema.virtual("bookings", {
+  ref: "Booking",
+  foreignField: "tour",
+  localField: "_id",
+});
+
 // ===============================================================
 // Document middleware
 

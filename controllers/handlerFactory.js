@@ -64,6 +64,9 @@ exports.getAll = (Model) =>
     // To allow for nested GET tours
     let filter = {};
     if (req.params.tourId) filter = { tour: req.params.tourId };
+    if (req.params.userId) filter = { user: req.params.userId };
+    console.log("req.params.tourId", req.params.tourId);
+    console.log("req.params.userId", req.params.userId);
 
     const features = new APIFeatures(Model.find(filter), req.query)
       .filter()

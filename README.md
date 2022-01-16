@@ -52,10 +52,10 @@ To push code
 
 Environment variables
 `heroku config:set NODE_ENV=production`  
-`heroku config:set JWT_SECRET=`
-`heroku config:set JWT_EXPIRES_IN=`
-`heroku config:set SENDGRID_USERNAME=`
-`heroku config:set SENDGRID_PASSWORD=`
+`heroku config:set JWT_SECRET=`  
+`heroku config:set JWT_EXPIRES_IN=`  
+`heroku config:set SENDGRID_USERNAME=`  
+`heroku config:set SENDGRID_PASSWORD=`  
 `heroku config:set STRIPE_SECRET_KEY=`  
 `heroku config:set STRIPE_WEBHOOK_SECRET=`
 

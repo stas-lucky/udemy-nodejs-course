@@ -11,7 +11,7 @@
     "start:prod": "NODE_ENV=production nodemon server.js",
     "start:prod:debug": "NODE_ENV=production ndb server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fe:watch": "parcel watch ./public/js/index.js --dist-dir ./public/js/dist",
+    "fe:watch": "parcel ./public/js/index.js --dist-dir ./public/js/dist",
     "fe:build": "parcel build ./public/js/index.js --dist-dir ./public/js/dist"
   },
   "author": "",

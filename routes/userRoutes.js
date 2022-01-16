@@ -1,6 +1,7 @@
 const express = require("express");
 const userController = require("./../controllers/userController");
 const authController = require("./../controllers/authController");
+const bookingRouter = require("./../routes/bookingRoutes");
 
 const router = express.Router();
 
@@ -13,6 +14,7 @@ router.patch("/resetPassword/:token", authController.resetPassword);
 
 // This will protect all routes after this
 router.use(authController.protect);
+router.use("/:userId/bookings", bookingRouter);
 router.patch("/updateMyPassword", authController.updateMyPassword);
 
 router.get("/me", userController.getMe, userController.getUser);
