@@ -21,7 +21,7 @@ const createSendToken = (user, statusCode, req, res) => {
     ),
     //secure: true,
     httpOnly: true,
-    secure: req.secure || req.headers("x-forwarded=proto" === "https"), // Heroku specific
+    secure: req.secure || req.headers["x-forwarded=proto"] === "https", // Heroku specific
   };
 
   res.cookie("jwt", token, coockieOptions);

@@ -2,6 +2,8 @@
   "name": "4-natours",
   "version": "1.0.0",
   "description": "",
+  "source": "./public/js/index.js",
+  "main": "./public/js/dist/index.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
@@ -55,6 +57,6 @@
     "prettier": "^2.4.1"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=16"
   }
 }
